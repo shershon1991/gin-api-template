@@ -1,7 +1,7 @@
 package main
 
 import (
-	"52lu/go-import-template/cmd"
+	"52lu/go-import-template/cmd/app"
 	"52lu/go-import-template/init"
 )
 
@@ -10,5 +10,5 @@ func init() {
 	init.ViperInit()
 }
 func main() {
-	cmd.RunServer()
+	app.RunServer()
 }
