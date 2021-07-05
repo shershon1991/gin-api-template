@@ -1,13 +1,16 @@
 package app
 
-import "github.com/gin-gonic/gin"
+import (
+	"52lu/go-import-template/core"
+	"github.com/gin-gonic/gin"
+)
 
 // RunServer 启动服务
 func RunServer() {
-	// 创建容器
+	// 创建默认容器
 	engine := gin.Default()
-	// todo 注册路由
-
+	// 注册路由
+	core.RegisterRouters(engine)
 	// 启动服务
 	_ = engine.Run()
 }

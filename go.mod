@@ -13,9 +13,13 @@ require (
 	github.com/mattn/go-isatty v0.0.13 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.1 // indirect
+	github.com/natefinch/lumberjack v2.0.0+incompatible // indirect
 	github.com/spf13/viper v1.8.1
 	github.com/stretchr/testify v1.7.0 // indirect
 	github.com/ugorji/go v1.2.6 // indirect
+	go.uber.org/atomic v1.8.0 // indirect
+	go.uber.org/multierr v1.7.0 // indirect
+	go.uber.org/zap v1.18.1
 	golang.org/x/crypto v0.0.0-20210616213533-5ff15b29337e // indirect
 	golang.org/x/sys v0.0.0-20210630005230-0f9fa26af87c // indirect
 	golang.org/x/text v0.3.6 // indirect

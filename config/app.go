@@ -3,10 +3,11 @@ package config
 
 // 应用信息
 type app struct {
-	Desc    string `yaml:"desc"`
-	Addr    string `yaml:"addr"`
-	ConfigFile    string `yaml:"configFile"`
-	Version string `yaml:"version"`
+	Desc       string `yaml:"desc"`
+	Addr       string `yaml:"addr"`
+	ConfigFile string `yaml:"configFile"`
+	Version    string `yaml:"version"`
+	Env        string `yaml:"env"`
 }
 
 // MySQL信息
@@ -28,4 +29,5 @@ type ViperConfig struct {
 	App   app   `yaml:"app"`
 	Mysql mysql `yaml:"mysql"`
 	Redis redis `yaml:"redis"`
+	Log   log   `yaml:"log"`
 }

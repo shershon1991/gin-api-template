@@ -1,4 +1,4 @@
-package init
+package initialize
 
 import (
 	"52lu/go-import-template/global"
@@ -27,13 +27,13 @@ func ViperInit() {
 	v.WatchConfig()
 	v.OnConfigChange(func(in fsnotify.Event) {
 		fmt.Println("配置文件发生改变")
-		if err := v.Unmarshal(&global.GVA_CONFIG); err != nil {
+		if err := v.Unmarshal(&global.GvaConfig); err != nil {
 			panic(fmt.Errorf("配置重载失败:%s\n",err))
 		}
 	})
-	if err := v.Unmarshal(&global.GVA_CONFIG); err != nil {
+	if err := v.Unmarshal(&global.GvaConfig); err != nil {
 		panic(fmt.Errorf("配置重载失败:%s\n",err))
 	}
 	// 设置配置文件
-	global.GVA_CONFIG.App.ConfigFile = configFile
+	global.GvaConfig.App.ConfigFile = configFile
 }

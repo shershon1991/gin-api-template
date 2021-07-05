@@ -2,6 +2,18 @@ app:
   desc: Gin框架学习实践
   version: v1.0.0
   addr: 0.0.0.0:8080
+  env: dev
+log:
+  file: ./logs/gin.log # 日志文件需要创建 logs
+  level: debug # 最低记录级别
+  writeWay: file # file/console/all
+  zap:
+    outFormat: json # json/
+  lumberJack: # 日志文件切割和压缩
+    maxSize: 10 # 单文件最大容量(单位MB)
+    maxBackups: 3 # 保留旧文件的最大数量
+    maxAge: 30 # 旧文件最多保存几天
+    compress: false #是否压缩/归档旧文件
 mysql:
   host: 127.0.0.1
   port: 3306
