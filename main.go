@@ -1,7 +1,7 @@
 package main
 
 import (
-	"52lu/go-import-template/cmd/app"
+	"52lu/go-import-template/core"
 	"52lu/go-import-template/initialize"
 )
 
@@ -13,5 +13,5 @@ func init() {
 }
 func main() {
 	// 启动服务
-	app.RunServer()
+	core.RunServer()
 }
