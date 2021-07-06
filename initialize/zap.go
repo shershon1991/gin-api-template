@@ -21,23 +21,6 @@ const (
 	outJson = "json"
 )
 
-// 获取最低记录日志级别
-func getLevel() zapcore.Level {
-	levelMap := map[string]zapcore.Level{
-		"debug":  zapcore.DebugLevel,
-		"info":   zapcore.InfoLevel,
-		"warn":   zapcore.WarnLevel,
-		"error":  zapcore.ErrorLevel,
-		"dpanic": zapcore.DPanicLevel,
-		"panic":  zapcore.PanicLevel,
-		"fatal":  zapcore.FatalLevel,
-	}
-	if level, ok := levelMap[global.GvaConfig.Log.Level]; ok {
-		return level
-	}
-	return zapcore.DebugLevel
-}
-
 // 初始化Logger
 func InitLogger() {
 	logConfig := global.GvaConfig.Log
@@ -53,16 +36,34 @@ func InitLogger() {
 		encoder = zapcore.NewConsoleEncoder(getEncoderConfig())
 	}
 	// 设置日志文件切割
-	writeSyncer := zapcore.AddSync(getLumberjackLogger())
+	writeSyncer := zapcore.AddSync(getLumberjackWriteSyncer())
 	// 创建NewCore
 	zapCore := zapcore.NewCore(encoder, writeSyncer, getLevel())
 	// 创建logger
 	logger := zap.New(zapCore)
 	defer logger.Sync()
+	// 赋值给全局变量
 	global.GvaLogger = logger
 }
+// 获取最低记录日志级别
+func getLevel() zapcore.Level {
+	levelMap := map[string]zapcore.Level{
+		"debug":  zapcore.DebugLevel,
+		"info":   zapcore.InfoLevel,
+		"warn":   zapcore.WarnLevel,
+		"error":  zapcore.ErrorLevel,
+		"dpanic": zapcore.DPanicLevel,
+		"panic":  zapcore.PanicLevel,
+		"fatal":  zapcore.FatalLevel,
+	}
+	if level, ok := levelMap[global.GvaConfig.Log.Level]; ok {
+		return level
+	}
+	// 默认info级别
+	return zapcore.InfoLevel
+}
 
-// 设置日志输出到文件的格式
+// 自定义日志输出字段
 func getEncoderConfig() zapcore.EncoderConfig {
 	config := zapcore.EncoderConfig{
 		// Keys can be anything except the empty string.
@@ -87,18 +88,9 @@ func getEncodeTime(t time.Time, enc zapcore.PrimitiveArrayEncoder) {
 	enc.AppendString(t.Format("2006/01/02 - 15:04:05.000"))
 }
 
-// 获取日志文件名
-func getLogFile() string {
-	fileFormat := time.Now().Format(global.GvaConfig.Log.FileFormat)
-	fileName := strings.Join([]string{
-		global.GvaConfig.Log.FilePrefix,
-		fileFormat,
-		"log"}, ".")
-	return path.Join(global.GvaConfig.Log.Path, fileName)
-}
 
 // 获取文件切割和归档配置信息
-func getLumberjackLogger() *lumberjack.Logger {
+func getLumberjackWriteSyncer() zapcore.WriteSyncer {
 	lumberjackConfig := global.GvaConfig.Log.LumberJack
 	lumberjackLogger := &lumberjack.Logger{
 		Filename:   getLogFile(),                //日志文件
@@ -107,5 +99,15 @@ func getLumberjackLogger() *lumberjack.Logger {
 		MaxAge:     lumberjackConfig.MaxAge,     // 旧文件最多保存几天
 		Compress:   lumberjackConfig.Compress,   // 是否压缩/归档旧文件
 	}
-	return lumberjackLogger
+	// 设置日志文件切割
+	return zapcore.AddSync(lumberjackLogger)
+}
+// 获取日志文件名
+func getLogFile() string {
+	fileFormat := time.Now().Format(global.GvaConfig.Log.FileFormat)
+	fileName := strings.Join([]string{
+		global.GvaConfig.Log.FilePrefix,
+		fileFormat,
+		"log"}, ".")
+	return path.Join(global.GvaConfig.Log.Path, fileName)
 }
