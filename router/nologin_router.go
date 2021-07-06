@@ -13,6 +13,6 @@ import (
 // 不需要验证登录的路由
 func InitNoLoginRouter(group *gin.RouterGroup)  {
 	// 获取全局变量
-	group.GET("/system/config",v1.GetConfig)
+	group.GET("/config",v1.GetConfig)
 
 }
