@@ -11,11 +11,12 @@ import (
 )
 // 注册路由入口
 func RegisterRouters(engine *gin.Engine)  {
-	initV1(engine)
+	// 注册不需要登录验证的路由
+	initNotLogin(engine)
 }
 
-func initV1(engine *gin.Engine)  {
-	// v1版本接口
-	v1 := engine.Group("v1")
-	router.InitTestRouter(v1)
+// 不需要登录验证的路由
+func initNotLogin(engine *gin.Engine)  {
+	noLoginGroup := engine.Group("")
+	router.InitNoLoginRouter(noLoginGroup)
 }

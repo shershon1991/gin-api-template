@@ -3,14 +3,37 @@ package core
 import (
 	"52lu/go-import-template/global"
 	"github.com/gin-gonic/gin"
+	"net/http"
+	"time"
 )
+
+// 获取自定义HTTP SERVER
+func getCustomHttpServer(engine *gin.Engine) *http.Server {
+	// 创建自定义配置服务
+	httpServer := &http.Server{
+		//ip和端口号
+		Addr: global.GvaConfig.App.Addr,
+		//调用的处理器，如为nil会调用http.DefaultServeMux
+		Handler: engine,
+		//计算从成功建立连接到request body(或header)完全被读取的时间
+		ReadTimeout: time.Second * 10,
+		//计算从request body(或header)读取结束到 response write结束的时间
+		WriteTimeout: time.Second * 10,
+		//请求头的最大长度，如为0则用DefaultMaxHeaderBytes
+		MaxHeaderBytes: 1 << 20,
+	}
+	return httpServer
+}
 
 // RunServer 启动服务
 func RunServer() {
-	// 创建默认容器
-	engine := gin.Default()
+	engine := gin.New()
+	// 注册公共中间件
+	engine.Use(gin.Recovery())
+	// 获取自定义http配置
+	httpServer := getCustomHttpServer(engine)
 	// 注册路由
 	RegisterRouters(engine)
 	// 启动服务
-	_ = engine.Run(global.GvaConfig.App.Addr)
+	_ = httpServer.ListenAndServe()
 }
