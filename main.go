@@ -8,6 +8,8 @@ import (
 func init() {
 	// 初始化全局配置文件
 	initialize.ViperInit()
+	// 初始化zap日志
+	initialize.InitZap()
 }
 func main() {
 	app.RunServer()

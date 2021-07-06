@@ -6,12 +6,17 @@
 package v1
 
 import (
+	"52lu/go-import-template/global"
 	"52lu/go-import-template/model/response"
 	"github.com/gin-gonic/gin"
+	"go.uber.org/zap"
+	"strings"
 )
 
 func Hello(ctx *gin.Context) {
-	response.Ok(ctx)
+	global.GvaLogger.Sugar().Infof("日志写入测试: %v",strings.Repeat("hello",6))
+	global.GvaLogger.Info("Info记录",zap.String("name","张三"))
+	response.OkWithData(ctx,global.GvaConfig)
 }
 func Test(ctx *gin.Context) {
 	response.Ok(ctx)

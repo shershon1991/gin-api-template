@@ -7,8 +7,10 @@ package config
 
 // 日志信息
 type log struct {
-	File       string     `yaml:"file"`
+	Path       string     `yaml:"path"`
 	Level      string     `yaml:"level"`
+	FilePrefix string     `yaml:"filePrefix"`
+	FileFormat string     `yaml:"fileFormat"`
 	OutFormat  string     `yaml:"outFormat"`
 	LumberJack lumberJack `yaml:"lumberJack"`
 }
