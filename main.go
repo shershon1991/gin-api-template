@@ -7,10 +7,11 @@ import (
 
 func init() {
 	// 初始化全局配置文件
-	initialize.ViperInit()
+	initialize.InitConfig()
 	// 初始化zap日志
 	initialize.InitZap()
 }
 func main() {
+	// 启动服务
 	app.RunServer()
 }
