@@ -39,7 +39,7 @@ func getLevel() zapcore.Level {
 }
 
 // 初始化Logger
-func InitZap() {
+func InitLogger() {
 	logConfig := global.GvaConfig.Log
 	// 判断日志目录是否存在
 	if exist, _ := utils.DirExist(logConfig.Path); !exist {

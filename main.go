@@ -9,7 +9,7 @@ func init() {
 	// 初始化全局配置文件
 	initialize.InitConfig()
 	// 初始化zap日志
-	initialize.InitZap()
+	initialize.InitLogger()
 }
 func main() {
 	// 启动服务

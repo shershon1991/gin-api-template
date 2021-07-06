@@ -24,8 +24,8 @@ type redis struct {
 	Port string `yaml:"port"`
 }
 
-// ViperConfig 配置信息
-type ViperConfig struct {
+// ServerConfig 配置信息
+type ServerConfig struct {
 	App   app   `yaml:"app"`
 	Mysql mysql `yaml:"mysql"`
 	Redis redis `yaml:"redis"`

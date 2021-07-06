@@ -13,6 +13,6 @@ const (
 
 // 变量
 var (
-	GvaConfig config.ViperConfig // 全局配置
-	GvaLogger *zap.Logger        // 日志
+	GvaConfig config.ServerConfig // 全局配置
+	GvaLogger *zap.Logger         // 日志
 )
