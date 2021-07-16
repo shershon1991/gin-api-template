@@ -2,6 +2,7 @@ package core
 
 import (
 	"52lu/go-import-template/global"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"time"
@@ -34,6 +35,14 @@ func RunServer() {
 	httpServer := getCustomHttpServer(engine)
 	// 注册路由
 	RegisterRouters(engine)
+	// 打印服务信息
+	printServerInfo()
 	// 启动服务
 	_ = httpServer.ListenAndServe()
+}
+
+// 打印服务信息
+func printServerInfo() {
+	appConfig := global.GvaConfig.App
+	fmt.Printf("\n【 当前环境: %s 当前版本: %s 接口地址: http://%s 】\n", appConfig.Env, appConfig.Version, appConfig.Addr)
 }

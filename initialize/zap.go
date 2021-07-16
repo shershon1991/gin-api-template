@@ -45,6 +45,7 @@ func InitLogger() {
 	// 赋值给全局变量
 	global.GvaLogger = logger
 }
+
 // 获取最低记录日志级别
 func getLevel() zapcore.Level {
 	levelMap := map[string]zapcore.Level{
@@ -88,7 +89,6 @@ func getEncodeTime(t time.Time, enc zapcore.PrimitiveArrayEncoder) {
 	enc.AppendString(t.Format("2006/01/02 - 15:04:05.000"))
 }
 
-
 // 获取文件切割和归档配置信息
 func getLumberjackWriteSyncer() zapcore.WriteSyncer {
 	lumberjackConfig := global.GvaConfig.Log.LumberJack
@@ -102,6 +102,7 @@ func getLumberjackWriteSyncer() zapcore.WriteSyncer {
 	// 设置日志文件切割
 	return zapcore.AddSync(lumberjackLogger)
 }
+
 // 获取日志文件名
 func getLogFile() string {
 	fileFormat := time.Now().Format(global.GvaConfig.Log.FileFormat)
@@ -111,3 +112,5 @@ func getLogFile() string {
 		"log"}, ".")
 	return path.Join(global.GvaConfig.Log.Path, fileName)
 }
+
+

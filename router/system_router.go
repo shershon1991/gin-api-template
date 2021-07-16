@@ -10,9 +10,11 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// 不需要验证登录的路由
-func InitNoLoginRouter(group *gin.RouterGroup)  {
-	// 获取全局变量
-	group.GET("/config",v1.GetConfig)
-
+// 系统路由
+func InitSystemRouter(engine *gin.Engine) {
+	systemRouter := engine.Group("system")
+	{
+		// 获取全局变量
+		systemRouter.GET("config", v1.GetConfig)
+	}
 }
