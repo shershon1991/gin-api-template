@@ -12,8 +12,8 @@ func init() {
 	initialize.InitConfig()
 	// 初始化zap日志
 	initialize.InitLogger()
-	// 初始化mysql
-	initialize.InitMysql()
+	// 初始化gorm
+	initialize.InitGorm()
 }
 func main() {
 	// 启动服务
