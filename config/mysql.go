@@ -5,11 +5,7 @@ package config
 
 import "time"
 
-/*
- slowSql: 500 # 单位毫秒
-    level: error # error、info、warn
-    IgnoreRecordNotFoundError: false # 是否忽略ErrRecordNotFound(未查到记录错误)
-*/
+
 // MySQL信息
 type mysql struct {
 	Host                      string        `yaml:"host"`

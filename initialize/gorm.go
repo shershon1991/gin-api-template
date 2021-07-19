@@ -50,7 +50,6 @@ func InitGorm() {
 	}
 	// 赋值给全局变量
 	global.GvaMysqlClient = client
-
 	// 是否调用数据迁移
 	if mysqlConfig.AutoMigrate {
 		core.AutoMigrate()
