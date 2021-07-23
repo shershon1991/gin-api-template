@@ -6,6 +6,7 @@
 package response
 
 import (
+	"52lu/go-import-template/global"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"time"
@@ -14,6 +15,7 @@ import (
 const (
 	SUCCESS = 0
 	ERROR   = -1
+	TOKEN_EXIPRE   = -1
 )
 
 // 定义统一返回接口格式
@@ -21,7 +23,7 @@ type Response struct {
 	Code int         `json:"code"`
 	Msg  string      `json:"msg"`
 	Data interface{} `json:"data"`
-	Time string      `json:"time"`
+	Time string      `json:"-"`
 }
 
 // 请求响应
@@ -31,7 +33,7 @@ func ResultJson(ctx *gin.Context, code int, msg string, data interface{}) {
 		Code: code,
 		Msg:  msg,
 		Data: data,
-		Time: time.Now().Format("2006-01-02 15:04:05"),
+		Time: time.Now().Format(global.YYYYMMDDHHIISS),
 	})
 }
 
@@ -56,6 +58,11 @@ func OkWithDetail(ctx *gin.Context, msg string, data interface{}) {
 }
 
 // 错误信息
-func Fail(ctx *gin.Context, msg string) {
+func Error(ctx *gin.Context, msg string) {
 	ResultJson(ctx, ERROR, msg, map[string]interface{}{})
+}
+
+// 登录超时或者token失效
+func ErrorWithToken(ctx *gin.Context, msg string)  {
+	ResultJson(ctx, TOKEN_EXIPRE, msg, map[string]interface{}{})
 }

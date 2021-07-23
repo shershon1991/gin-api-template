@@ -10,10 +10,10 @@ type app struct {
 	Env        string `yaml:"env"`
 }
 
-
 // ServerConfig 配置信息
 type ServerConfig struct {
 	App   app   `yaml:"app"`
 	Mysql mysql `yaml:"mysql"`
 	Log   log   `yaml:"log"`
+	Jwt   jwt   `yaml:"jwt"`
 }

@@ -40,7 +40,7 @@ func InitLogger() {
 	// 创建NewCore
 	zapCore := zapcore.NewCore(encoder, writeSyncer, getLevel())
 	// 创建logger
-	logger := zap.New(zapCore)
+	logger := zap.New(zapCore,zap.AddCaller(),zap.AddStacktrace(zap.ErrorLevel))
 	defer logger.Sync()
 	// 赋值给全局变量
 	global.GvaLogger = logger
@@ -74,7 +74,7 @@ func getEncoderConfig() zapcore.EncoderConfig {
 		CallerKey:      "caller",
 		FunctionKey:    zapcore.OmitKey,
 		MessageKey:     "msg",
-		StacktraceKey:  "S",
+		StacktraceKey:  "stacktrace",
 		LineEnding:     zapcore.DefaultLineEnding,
 		EncodeLevel:    zapcore.CapitalLevelEncoder,
 		EncodeTime:     getEncodeTime, // 自定义输出时间格式

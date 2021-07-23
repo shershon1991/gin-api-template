@@ -1,7 +1,7 @@
 /**
  * @Description 用户相关的实体
  **/
-package entity
+package model
 
 import (
 	"52lu/go-import-template/global"
@@ -12,9 +12,10 @@ type User struct {
 	global.BaseModel
 	NickName string   `json:"nickName" gorm:"type:varchar(20);not null;default:'';comment:昵称"`
 	Phone    string   `json:"phone" gorm:"type:char(11);unique:un_phone;comment:手机号"`
-	Password string   `json:"password" gorm:"type:varchar(20);comment:密码"`
+	Password string   `json:"-" gorm:"type:varchar(40);comment:密码"`
 	Status   int      `json:"status" gorm:"size:4;default:1;comment:状态 1:正常 2:白名单 3:黑名单"`
 	UserInfo UserInfo `json:"userInfo" gorm:"-"`
+	Token    string   `json:"token" gorm:"-"`
 }
 
 // 用户信息表

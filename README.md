@@ -11,10 +11,12 @@
 ├── global // 全局变量和常量
 ├── initialize // 初始化相关
 ├── logs // 日志目录
+├── middleware // 中间件
 ├── main.go // 启动文件
-├── model // 实体
+├── model // 实体和表结构一一对应   
+    └── request // 请求参数结构体
+    └── response // 返回参数结构、返回函数封装
 ├── router // 路由
-    └── middleware //中间件
 ├── test // 单元测试目录
 └── utils // 工具包
 ```
@@ -23,5 +25,6 @@
 
 
 # 集成博客
-- [集成Viper配置解析包](https://mp.weixin.qq.com/s/H3PenuPWMPn_hbz2L04TUg)
-- 
+- [Gin集成(一):集成viper配置解析包](https://mp.weixin.qq.com/s/HYUpF2UhekVGsKM4ON5OFw)
+- [Gin集成(二):集成高性能日志zap](https://mp.weixin.qq.com/s/SaJQbKY6veFpp9q4C1U0Jg)
+- [Gin集成(三):集成全功能ORM框架(gorm)](https://mp.weixin.qq.com/s/IM3bWTbfoqpF7AXkej0yRg)
