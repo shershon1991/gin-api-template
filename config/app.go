@@ -16,4 +16,5 @@ type ServerConfig struct {
 	Mysql mysql `yaml:"mysql"`
 	Log   log   `yaml:"log"`
 	Jwt   jwt   `yaml:"jwt"`
+	Redis redis `yaml:"redis"`
 }

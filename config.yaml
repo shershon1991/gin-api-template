@@ -41,3 +41,8 @@ jwt:
   secret: liuqh.icu # jwt生成密钥
   issuer: 猿码记 # 签发人
   expire: 3h # 有效时间，值如: 30s|10min|1h
+redis:
+  addr: 127.0.0.1:6379
+  password: # 密码(可为空)
+  defaultDB: 0 # 默认DB
+  dialTimeout: 5s #redis连接超时时间.默认5s
