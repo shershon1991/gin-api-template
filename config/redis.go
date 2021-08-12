@@ -10,4 +10,5 @@ type redis struct {
 	Password    string        `yaml:"password"`
 	DefaultDB   int           `yaml:"defaultDB"`
 	DialTimeout time.Duration `yaml:"dialTimeout"`
+	commonConfig
 }

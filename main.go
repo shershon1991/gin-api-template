@@ -11,7 +11,6 @@ func init() {
 	defer global.CatchError()
 	// 程序退出前释放资源
 	defer closeResource()
-
 	// 初始化全局配置文件
 	initialize.InitConfig()
 	// 初始化zap日志
@@ -20,6 +19,8 @@ func init() {
 	initialize.InitGorm()
 	// 初始化redis
 	initialize.InitRedis()
+	// 初始化es
+	initialize.InitES()
 }
 
 func main() {
