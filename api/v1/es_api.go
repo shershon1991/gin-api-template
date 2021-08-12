@@ -1,6 +1,4 @@
-/**
- * @Description TODO
- **/
+// Package v1 /**
 package v1
 
 import (
@@ -13,7 +11,7 @@ import (
 // 索引库
 const indexName = "go-test"
 
-// 创建索引
+// CreateIndex 创建索引
 func CreateIndex(ctx *gin.Context) {
 	userMapping := `{
     "mappings":{
@@ -44,7 +42,7 @@ func CreateIndex(ctx *gin.Context) {
 	response.OkWithData(ctx, res)
 }
 
-// 查询
+// SearchById 查询
 func SearchById(ctx *gin.Context)  {
 	id,_ := ctx.GetQuery("id")
 	res, err := global.GvaElastic.Get().Index(indexName).Id(id).Do(ctx)
@@ -52,7 +50,6 @@ func SearchById(ctx *gin.Context)  {
 		response.Error(ctx, fmt.Sprintf("查询失败:%s",err))
 		return
 	}
-	json, _ := res.Source.MarshalJSON()
-	response.OkWithData(ctx,json)
+	response.OkWithData(ctx,res.Source)
 }
 

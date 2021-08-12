@@ -5,7 +5,6 @@ package config
 
 import "time"
 
-
 // MySQL信息
 type mysql struct {
 	Host                      string        `yaml:"host"`
@@ -24,6 +23,7 @@ type mysql struct {
 	SlowSql                   time.Duration `yaml:"slowSql"`                   //慢SQL
 	LogLevel                  string        `yaml:"logLevel"`                  // 日志记录级别
 	IgnoreRecordNotFoundError bool          `yaml:"ignoreRecordNotFoundError"` // 是否忽略ErrRecordNotFound(未查到记录错误)
+	Enable                    bool          `yaml:"enable"`
 }
 
 // gorm 配置信息

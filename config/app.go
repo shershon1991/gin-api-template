@@ -19,8 +19,3 @@ type ServerConfig struct {
 	Redis   redis   `yaml:"redis"`
 	Elastic elastic `yaml:"elastic"`
 }
-
-// 公共配置
-type commonConfig struct {
-	Enable bool `yaml:"enable"`
-}

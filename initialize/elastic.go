@@ -13,7 +13,6 @@ import (
 
 // 创建es客户端
 func InitES() {
-	global.GvaLogger.Sugar().Desugar()
 	// 配置
 	elasticConfig := global.GvaConfig.Elastic
 	if elasticConfig.Enable {

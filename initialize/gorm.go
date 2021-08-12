@@ -1,6 +1,4 @@
-/**
- * @Description 初始化GORM
- **/
+// Package initialize /**
 package initialize
 
 import (
@@ -15,9 +13,12 @@ import (
 	"os"
 )
 
-// 初始化mysql客户端
+// InitGorm 初始化mysql客户端
 func InitGorm() {
 	mysqlConfig := global.GvaConfig.Mysql
+	if !mysqlConfig.Enable {
+		return
+	}
 	// user:pass@tcp(127.0.0.1:3306)/dbname?charset=utf8mb4&parseTime=True&loc=Local
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=%s&parseTime=%t&loc=%s",
 		mysqlConfig.User, mysqlConfig.Password, mysqlConfig.Host, mysqlConfig.Port, mysqlConfig.Database, mysqlConfig.Charset,

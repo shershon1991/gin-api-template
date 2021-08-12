@@ -23,5 +23,5 @@ type elastic struct {
 	Sniff               bool          `yaml:"sniff"`
 	HealthCheckInterval time.Duration `yaml:"healthCheckInterval"`
 	LogPre              string        `yaml:"logPre"`
-	commonConfig
+	Enable              bool          `yaml:"enable"`
 }

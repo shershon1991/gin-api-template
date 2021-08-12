@@ -1,6 +1,4 @@
-/**
- * @Description 初始化redis
- **/
+// Package initialize /**
 package initialize
 
 import (
@@ -9,8 +7,11 @@ import (
 	"github.com/go-redis/redis/v8"
 )
 
-// 初始化redis客户端
+// InitRedis 初始化redis客户端
 func InitRedis()  {
+	if !global.GvaConfig.Redis.Enable {
+		return
+	}
 	// 创建
 	redisClient := redis.NewClient(&redis.Options{
 		Addr:     global.GvaConfig.Redis.Addr,
