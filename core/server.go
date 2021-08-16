@@ -38,7 +38,10 @@ func RunServer() {
 	// 打印服务信息
 	printServerInfo()
 	// 启动服务
-	_ = httpServer.ListenAndServe()
+	err := httpServer.ListenAndServe()
+	if err != nil {
+		panic("启动失败: "+err.Error())
+	}
 }
 
 // 打印服务信息
