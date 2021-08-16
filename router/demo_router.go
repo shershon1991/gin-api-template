@@ -6,7 +6,7 @@
 package router
 
 import (
-	v1 "52lu/go-import-template/api/demo"
+	"52lu/go-import-template/api/demo"
 	"52lu/go-import-template/middleware"
 	"github.com/gin-gonic/gin"
 )
@@ -17,32 +17,32 @@ func InitDemoRouter(engine *gin.Engine) {
 	systemRouter := engine.Group("system")
 	{
 		// 获取全局变量
-		systemRouter.GET("config", v1.GetConfig)
+		systemRouter.GET("config", demo.GetConfig)
 
 	}
 	// 不需要登录的路由
-	noLoginGroup := engine.Group("v1/user")
+	noLoginGroup := engine.Group("demo/user")
 	{
 		// 登录
-		noLoginGroup.POST("login", v1.Login)
+		noLoginGroup.POST("login", demo.Login)
 		// 注册
-		noLoginGroup.POST("register", v1.Register)
+		noLoginGroup.POST("register", demo.Register)
 	}
 	// 需要登录
-	tokenGroup := engine.Group("v1/user").Use(middleware.JWTAuthMiddleware())
+	tokenGroup := engine.Group("demo/user").Use(middleware.JWTAuthMiddleware())
 	{
-		tokenGroup.POST("/detail", v1.GetUser)
+		tokenGroup.POST("/detail", demo.GetUser)
 	}
 	// 测试路由
 	testRouter := engine.Group("test")
 	{
 		// redis测试使用
-		testRouter.GET("redis", v1.RdTest)
+		testRouter.GET("redis", demo.RdTest)
 	}
 	// es相关路由
 	esGroup := engine.Group("es")
 	{
-		esGroup.GET("create", v1.CreateIndex)
-		esGroup.GET("searchById", v1.SearchById)
+		esGroup.GET("create", demo.CreateIndex)
+		esGroup.GET("searchById", demo.SearchById)
 	}
 }
