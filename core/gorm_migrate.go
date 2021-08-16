@@ -5,7 +5,7 @@ package core
 
 import (
 	"52lu/go-import-template/global"
-	"52lu/go-import-template/model"
+	"52lu/go-import-template/model/entity"
 	"fmt"
 	"gorm.io/gorm"
 )
@@ -20,9 +20,9 @@ func setTableOption(tableComment string) *gorm.DB {
 // 用户相关表
 func userTable() {
 	// 用户账号表
-	_ = setTableOption("用户表").AutoMigrate(&model.User{})
+	_ = setTableOption("用户表").AutoMigrate(&entity.User{})
 	// 用户信息表
-	_ = setTableOption("用户信息表").AutoMigrate(&model.UserInfo{})
+	_ = setTableOption("用户信息表").AutoMigrate(&entity.UserInfo{})
 }
 
 // 数据表迁移

@@ -5,7 +5,7 @@ package service
 
 import (
 	"52lu/go-import-template/global"
-	"52lu/go-import-template/model"
+	"52lu/go-import-template/model/entity"
 	"52lu/go-import-template/model/request"
 	"gorm.io/gorm"
 )
@@ -14,7 +14,7 @@ import (
  * @description: 账户密码登录
  * @param user
  */
-func LoginPwd(user *model.User) error {
+func LoginPwd(user *entity.User) error {
 	//校验账户和密码
 	result := global.GvaMysqlClient.Where("phone=? and password=?", user.Phone, user.Password).
 		First(user)
@@ -22,7 +22,7 @@ func LoginPwd(user *model.User) error {
 		return result.Error
 	}
 	// 查询用户信息
-	userInfo := model.UserInfo{}
+	userInfo := entity.UserInfo{}
 	result = global.GvaMysqlClient.Where("uid = ?", user.ID).First(&userInfo)
 	if result.Error != nil {
 		return result.Error
@@ -32,8 +32,8 @@ func LoginPwd(user *model.User) error {
 }
 
 // 注册用户
-func Register(param request.RegisterParam) (*model.User, error) {
-	user := model.User{
+func Register(param request.RegisterParam) (*entity.User, error) {
+	user := entity.User{
 		NickName: param.NickName,
 		Phone:    param.Phone,
 		Password: param.Password,
@@ -43,7 +43,7 @@ func Register(param request.RegisterParam) (*model.User, error) {
 			global.GvaLogger.Sugar().Errorf("新增用户失败: %s", err)
 			return err
 		}
-		userInfo := model.UserInfo{
+		userInfo := entity.UserInfo{
 			Uid:      user.ID,
 			Birthday: param.Birthday,
 			Address:  param.Address,

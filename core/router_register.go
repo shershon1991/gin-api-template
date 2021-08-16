@@ -13,7 +13,7 @@ import (
 // 注册路由入口
 func RegisterRouters(engine *gin.Engine) {
 	// 注册系统路由
-	router.InitSystemRouter(engine)
+	router.InitDemoRouter(engine)
 	// 注册用户路由
 	router.InitUserRouter(engine)
 	// 测试路由

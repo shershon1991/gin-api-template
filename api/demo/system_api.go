@@ -3,7 +3,7 @@
  * @Description 系统接口
  * @Date 2021/7/6 4:43 下午
  **/
-package v1
+package demo
 
 import (
 	"52lu/go-import-template/global"

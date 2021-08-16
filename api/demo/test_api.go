@@ -1,7 +1,7 @@
 /**
  * @Description TODO
  **/
-package v1
+package demo
 
 import (
 	"52lu/go-import-template/global"

@@ -1,5 +1,5 @@
 // Package v1 /**
-package v1
+package demo
 
 import (
 	"52lu/go-import-template/global"
