@@ -26,7 +26,7 @@ func Register(ctx *gin.Context) {
 	// 调用注册
 	register, err := userService.Register(registerParam)
 	if err != nil {
-		response.Error(ctx, "注册失败!")
+		response.Error(ctx, "注册失败: " + err.Error())
 		return
 	}
 	response.OkWithData(ctx, register)
@@ -37,7 +37,6 @@ func Register(ctx *gin.Context) {
  * @param ctx
  */
 func Login(ctx *gin.Context) {
-	panic("抛出错误！")
 	// 绑定参数
 	var loginParam request.LoginParam
 	_ = ctx.ShouldBindJSON(&loginParam)

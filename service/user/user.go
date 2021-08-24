@@ -38,7 +38,7 @@ func Register(param request.RegisterParam) (*entity.User, error) {
 		Phone:    param.Phone,
 		Password: param.Password,
 	}
-	_ = global.GvaMysqlClient.Transaction(func(tx *gorm.DB) error {
+	err := global.GvaMysqlClient.Transaction(func(tx *gorm.DB) error {
 		if err := tx.Create(&user).Error; err != nil {
 			global.GvaLogger.Sugar().Errorf("新增用户失败: %s", err)
 			return err
@@ -55,5 +55,5 @@ func Register(param request.RegisterParam) (*entity.User, error) {
 		user.UserInfo = userInfo
 		return nil
 	})
-	return &user, nil
+	return &user, err
 }
