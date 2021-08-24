@@ -7,8 +7,6 @@ import (
 )
 
 func init() {
-	// 捕获启动时错误
-	defer global.CatchError()
 	// 初始化全局配置文件
 	initialize.InitConfig()
 	// 初始化zap日志

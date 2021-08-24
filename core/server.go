@@ -2,6 +2,7 @@ package core
 
 import (
 	"52lu/go-import-template/global"
+	"52lu/go-import-template/middleware"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -30,7 +31,7 @@ func getCustomHttpServer(engine *gin.Engine) *http.Server {
 func RunServer() {
 	engine := gin.New()
 	// 注册公共中间件
-	engine.Use(gin.Recovery())
+	engine.Use(gin.Recovery(), middleware.CatchErrorMiddleWare())
 	// 获取自定义http配置
 	httpServer := getCustomHttpServer(engine)
 	// 注册路由
@@ -40,7 +41,7 @@ func RunServer() {
 	// 启动服务
 	err := httpServer.ListenAndServe()
 	if err != nil {
-		panic("启动失败: "+err.Error())
+		panic("启动失败: " + err.Error())
 	}
 }
 
