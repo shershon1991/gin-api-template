@@ -1,5 +1,5 @@
 # gin-import-template
-`Gin`框架学习使用,并实践常用包在Gin框架中的集成和使用。[Github地址: https://github.com/52lu/gin-import-template.git]( https://github.com/52lu/gin-import-template.git)
+`Gin`框架学习使用,并实践常用包在Gin框架中的集成和使用。[Github地址: https://github.com/52lu/gin-api-template.git]( https://github.com/52lu/gin-api-template.git)
 
 
 
@@ -23,9 +23,6 @@
 ├── test // 单元测试目录
 └── utils // 工具包
 ```
-
-# 集成服务
-
 
 # 集成博客
 - [Gin集成(一):集成viper配置解析包](https://mp.weixin.qq.com/s/HYUpF2UhekVGsKM4ON5OFw)
