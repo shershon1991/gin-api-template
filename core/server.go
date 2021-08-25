@@ -2,6 +2,7 @@ package core
 
 import (
 	"52lu/go-import-template/global"
+	"52lu/go-import-template/initialize"
 	"52lu/go-import-template/middleware"
 	"fmt"
 	"github.com/gin-gonic/gin"
@@ -35,7 +36,7 @@ func RunServer() {
 	// 获取自定义http配置
 	httpServer := getCustomHttpServer(engine)
 	// 注册路由
-	RegisterRouters(engine)
+	initialize.RegisterRouters(engine)
 	// 打印服务信息
 	printServerInfo()
 	// 启动服务

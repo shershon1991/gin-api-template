@@ -1,6 +1,3 @@
-/**
- * @Description 用户相关表
- **/
 package demo
 
 import (

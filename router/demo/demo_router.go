@@ -1,9 +1,4 @@
-/**
- * @Author Mr.LiuQH
- * @Description 不需要验证登录
- * @Date 2021/7/5 3:44 下午
- **/
-package router
+package demo
 
 import (
 	"52lu/go-import-template/api/demo"
@@ -34,13 +29,13 @@ func InitDemoRouter(engine *gin.Engine) {
 		tokenGroup.POST("/detail", demo.GetUser)
 	}
 	// 测试路由
-	testRouter := engine.Group("test")
+	testRouter := engine.Group("demo")
 	{
 		// redis测试使用
 		testRouter.GET("redis", demo.RdTest)
 	}
 	// es相关路由
-	esGroup := engine.Group("es")
+	esGroup := engine.Group("demo/es")
 	{
 		esGroup.GET("create", demo.CreateIndex)
 		esGroup.GET("searchById", demo.SearchById)

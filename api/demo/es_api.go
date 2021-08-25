@@ -1,4 +1,3 @@
-// Package v1 /**
 package demo
 
 import (

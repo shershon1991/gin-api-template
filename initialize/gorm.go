@@ -2,7 +2,6 @@
 package initialize
 
 import (
-	"52lu/go-import-template/core"
 	"52lu/go-import-template/global"
 	"fmt"
 	"gorm.io/driver/mysql"
@@ -53,7 +52,7 @@ func InitGorm() {
 	global.GvaMysqlClient = client
 	// 是否调用数据迁移
 	if mysqlConfig.AutoMigrate {
-		core.AutoMigrate()
+		AutoMigrate()
 	}
 }
 

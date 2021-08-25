@@ -1,8 +1,3 @@
-/**
- * @Author Mr.LiuQH
- * @Description 系统接口
- * @Date 2021/7/6 4:43 下午
- **/
 package demo
 
 import (
