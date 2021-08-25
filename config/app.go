@@ -18,4 +18,5 @@ type ServerConfig struct {
 	Jwt     jwt     `yaml:"jwt"`
 	Redis   redis   `yaml:"redis"`
 	Elastic elastic `yaml:"elastic"`
+	Cron    cron    `yaml:"cron"`
 }

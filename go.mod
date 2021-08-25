@@ -18,6 +18,7 @@ require (
 	github.com/modern-go/reflect2 v1.0.1 // indirect
 	github.com/natefinch/lumberjack v2.0.0+incompatible
 	github.com/olivere/elastic/v7 v7.0.27
+	github.com/robfig/cron/v3 v3.0.0
 	github.com/spf13/viper v1.8.1
 	github.com/stretchr/testify v1.7.0 // indirect
 	github.com/ugorji/go v1.2.6 // indirect

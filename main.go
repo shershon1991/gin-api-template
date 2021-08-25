@@ -17,6 +17,8 @@ func init() {
 	initialize.InitRedis()
 	// 初始化es
 	initialize.InitES()
+	// 定时任务
+	initialize.InitCron()
 }
 
 func main() {
