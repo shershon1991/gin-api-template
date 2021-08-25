@@ -29,3 +29,5 @@
 - [Gin集成(二):集成高性能日志zap](https://mp.weixin.qq.com/s/SaJQbKY6veFpp9q4C1U0Jg)
 - [Gin集成(三):集成全功能ORM框架(gorm)](https://mp.weixin.qq.com/s/IM3bWTbfoqpF7AXkej0yRg)
 - [Gin集成(四):集成JWT](https://mp.weixin.qq.com/s/0ayMVsTdbI3OmgKOyyWCKQ)
+- [Gin集成(五):集成Redis](https://mp.weixin.qq.com/s/1Do6P40RIH0vLKL_nIOFuw)
+- [Gin集成(六):集成ElasticSearch客户端](https://mp.weixin.qq.com/s/XjLKVwIf8TnUffaBeFNVlQ)
