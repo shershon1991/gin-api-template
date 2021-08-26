@@ -8,11 +8,6 @@ import (
 	"gorm.io/gorm"
 )
 
-// 常量
-const (
-	ConfigFile = "./config.yaml" // 配置文件
-)
-
 // 全局客户端
 var (
 	GvaConfig      config.ServerConfig // 全局配置
