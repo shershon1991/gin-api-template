@@ -8,6 +8,7 @@ import (
 	ut "github.com/go-playground/universal-translator"
 	"github.com/go-playground/validator/v10"
 	zhs "github.com/go-playground/validator/v10/translations/zh"
+	"strings"
 	"sync"
 )
 
@@ -61,10 +62,10 @@ func Validate(param interface{}) error {
 func formatError(errs validator.ValidationErrors) error {
 	translateError := errs.Translate(trans)
 	var errMsgBuffer bytes.Buffer
-	for k, v := range translateError {
-		errMsgBuffer.WriteString(k)
-		errMsgBuffer.WriteString(":")
-		errMsgBuffer.WriteString(v)
+	for _, v := range translateError {
+		//errMsgBuffer.WriteString(k)
+		//errMsgBuffer.WriteString(":")
+		errMsgBuffer.WriteString(strings.ToLower(v))
 	}
 	return errors.New(errMsgBuffer.String())
 }
