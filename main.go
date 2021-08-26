@@ -5,24 +5,11 @@ import (
 	"52lu/go-import-template/initialize"
 )
 
-func init() {
-	// 初始化全局配置文件
-	initialize.InitConfig()
-	// 初始化zap日志
-	initialize.InitLogger()
-	// 初始化gorm
-	initialize.InitGorm()
-	// 初始化redis
-	initialize.InitRedis()
-	// 初始化es
-	initialize.InitES()
-	// 定时任务
-	initialize.InitCron()
-}
-
 func main() {
 	// 程序退出前释放资源
 	defer closeResource()
+	// 加载启动前配置
+	initialize.SetLoadInit()
 	// 启动服务
 	RunServer()
 }

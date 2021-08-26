@@ -8,7 +8,7 @@ import (
 )
 
 // InitRedis 初始化redis客户端
-func InitRedis()  {
+func initRedis()  {
 	if !global.GvaConfig.Redis.Enable {
 		return
 	}
