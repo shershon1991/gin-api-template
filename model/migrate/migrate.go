@@ -1,7 +1,7 @@
 /**
  * @Description mysql迁移
  **/
-package orm
+package migrate
 
 import (
 	"52lu/go-import-template/global"
