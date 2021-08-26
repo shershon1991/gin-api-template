@@ -1,7 +1,6 @@
 package main
 
 import (
-	"52lu/go-import-template/core"
 	"52lu/go-import-template/global"
 	"52lu/go-import-template/initialize"
 )
@@ -25,7 +24,7 @@ func main() {
 	// 程序退出前释放资源
 	defer closeResource()
 	// 启动服务
-	core.RunServer()
+	RunServer()
 }
 // 程序退出前释放资源
 func closeResource()  {

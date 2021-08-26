@@ -1,4 +1,4 @@
-package core
+package main
 
 import (
 	"52lu/go-import-template/global"

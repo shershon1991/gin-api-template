@@ -1,19 +1,13 @@
-/**
- * @Description JWT中间件
- **/
 package middleware
 
 import (
+	"52lu/go-import-template/core"
 	"52lu/go-import-template/global"
 	"52lu/go-import-template/model/dao"
 	"52lu/go-import-template/model/request"
 	"52lu/go-import-template/model/response"
-	"errors"
 	"github.com/gin-gonic/gin"
-	"github.com/golang-jwt/jwt"
-	"go.uber.org/zap"
 	"net/http"
-	"time"
 )
 
 /**
@@ -32,7 +26,7 @@ func JWTAuthMiddleware() func(ctx *gin.Context) {
 			return
 		}
 		// 验证Token
-		userClaim, err := ParseToken(token)
+		userClaim, err := core.ParseToken(token)
 		if err != nil {
 			response.ErrorWithToken(ctx, "Token error :"+err.Error())
 			// 中断请求
@@ -45,7 +39,6 @@ func JWTAuthMiddleware() func(ctx *gin.Context) {
 		ctx.Next()
 	}
 }
-
 // 设置数据到上下文
 func setContextData(ctx *gin.Context, userClaim *request.UserClaims, token string) {
 	userDao := &dao.UserDao{
@@ -90,37 +83,4 @@ func getToken(ctx *gin.Context) string {
 		}
 	}
 	return ""
-}
-
-// 创建Jwt
-func CreateToken(uid uint) (string, error) {
-	newWithClaims := jwt.NewWithClaims(jwt.SigningMethodHS256, &request.UserClaims{
-		StandardClaims: &jwt.StandardClaims{
-			ExpiresAt: time.Now().Add(global.GvaConfig.Jwt.Expire).Unix(), // 有效期
-			Issuer:    global.GvaConfig.Jwt.Issuer,                        // 签发人
-			IssuedAt:  time.Now().Unix(),                                  // 签发时间
-		},
-		Uid: uid,
-	})
-	return newWithClaims.SignedString([]byte(global.GvaConfig.Jwt.Secret))
-}
-
-// 验证JWT
-func ParseToken(tokenString string) (*request.UserClaims, error) {
-	var err error
-	var token *jwt.Token
-	token, err = jwt.ParseWithClaims(tokenString, &request.UserClaims{}, func(token *jwt.Token) (interface{}, error) {
-		return []byte(global.GvaConfig.Jwt.Secret), nil
-	})
-	if err != nil {
-		global.GvaLogger.Error("解析JWT失败", zap.String("error", err.Error()))
-		return nil, err
-	}
-	// 断言
-	userClaims, ok := token.Claims.(*request.UserClaims)
-	// 验证
-	if !ok || !token.Valid {
-		return nil, errors.New("JWT验证失败")
-	}
-	return userClaims, nil
 }

@@ -1,8 +1,9 @@
 package demo
 
 import (
+	"52lu/go-import-template/core"
+	"52lu/go-import-template/core/validate"
 	"52lu/go-import-template/global"
-	"52lu/go-import-template/middleware"
 	"52lu/go-import-template/model/entity"
 	"52lu/go-import-template/model/request"
 	"52lu/go-import-template/model/response"
@@ -12,14 +13,20 @@ import (
 )
 
 /**
- * @description: TODO 用户注册
+ * @description: 用户注册
  * @param ctx
  */
 func Register(ctx *gin.Context) {
 	// 绑定参数
 	var registerParam request.RegisterParam
+	var err error
 	_ = ctx.ShouldBindJSON(&registerParam)
-	// todo 参数校验
+	//  参数校验
+	err = validate.Validate(registerParam)
+	if err != nil {
+		response.Error(ctx, "参数校验失败: " + err.Error())
+		return
+	}
 	// 调用注册
 	register, err := userService.Register(registerParam)
 	if err != nil {
@@ -30,15 +37,17 @@ func Register(ctx *gin.Context) {
 }
 
 /**
- * @description: TODO 用户账号密码登录
+ * @description: 用户账号密码登录
  * @param ctx
  */
 func Login(ctx *gin.Context) {
 	// 绑定参数
 	var loginParam request.LoginParam
 	_ = ctx.ShouldBindJSON(&loginParam)
-	if loginParam.Password == "" || loginParam.Phone == "" {
-		response.Error(ctx, "手机号和密码不能为空！")
+	//  参数校验
+	err := validate.Validate(loginParam)
+	if err != nil {
+		response.Error(ctx, "参数校验失败: " + err.Error())
 		return
 	}
 	// 调用登录服务
@@ -49,7 +58,7 @@ func Login(ctx *gin.Context) {
 		return
 	}
 	// 生成token
-	token, err := middleware.CreateToken(userRecord.ID)
+	token, err := core.CreateToken(userRecord.ID)
 	if err != nil {
 		global.GvaLogger.Sugar().Errorf("登录失败,Token生成异常:%s", err)
 		response.Error(ctx, "登录失败,账号或者密码错误!")

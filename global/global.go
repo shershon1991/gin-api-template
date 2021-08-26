@@ -13,7 +13,7 @@ const (
 	ConfigFile = "./config.yaml" // 配置文件
 )
 
-// 变量
+// 全局客户端
 var (
 	GvaConfig      config.ServerConfig // 全局配置
 	GvaLogger      *zap.Logger         // 日志

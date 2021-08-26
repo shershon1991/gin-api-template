@@ -55,5 +55,6 @@ func Register(param request.RegisterParam) (*entity.User, error) {
 		user.UserInfo = userInfo
 		return nil
 	})
+	//user.Token =
 	return &user, err
 }
