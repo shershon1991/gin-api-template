@@ -1,10 +1,10 @@
 package demo
 
 import (
+	"52lu/go-import-template/global"
 	"52lu/go-import-template/internal"
 	"52lu/go-import-template/internal/validate"
-	"52lu/go-import-template/global"
-	"52lu/go-import-template/model/entity"
+	user2 "52lu/go-import-template/model/entity/user"
 	"52lu/go-import-template/model/request/user"
 	"52lu/go-import-template/model/response"
 	userService "52lu/go-import-template/service/user"
@@ -51,7 +51,7 @@ func Login(ctx *gin.Context) {
 		return
 	}
 	// 调用登录服务
-	userRecord := entity.User{Phone: loginParam.Phone, Password: loginParam.Password}
+	userRecord := user2.User{Phone: loginParam.Phone, Password: loginParam.Password}
 	if err := userService.LoginPwd(&userRecord); err != nil {
 		global.GvaLogger.Error("登录失败:", zap.Any("user", userRecord))
 		response.Error(ctx, "登录失败,账号或者密码错误!")

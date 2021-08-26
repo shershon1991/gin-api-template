@@ -1,7 +1,7 @@
 /**
  * @Description 用户相关的实体
  **/
-package entity
+package user
 
 import (
 	"52lu/go-import-template/global"

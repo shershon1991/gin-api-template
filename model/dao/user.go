@@ -5,7 +5,7 @@ package dao
 
 import (
 	"52lu/go-import-template/global"
-	"52lu/go-import-template/model/entity"
+	userEntity "52lu/go-import-template/model/entity/user"
 )
 
 type UserDao struct {
@@ -13,8 +13,8 @@ type UserDao struct {
 }
 
 // 查询用户信息
-func (u *UserDao) FindUser() (*entity.User, error) {
-	var user entity.User
+func (u *UserDao) FindUser() (*userEntity.User, error) {
+	var user userEntity.User
 	//校验账户和密码
 	result := global.GvaMysqlClient.Where("id=? ", u.Uid).
 		First(&user)
@@ -22,7 +22,7 @@ func (u *UserDao) FindUser() (*entity.User, error) {
 		return nil, result.Error
 	}
 	// 查询用户信息
-	userInfo := entity.UserInfo{}
+	userInfo := userEntity.UserInfo{}
 	result = global.GvaMysqlClient.Where("uid = ?", u.Uid).First(&userInfo)
 	if result.Error != nil {
 		return nil, result.Error
