@@ -1,8 +1,8 @@
 package demo
 
 import (
-	"52lu/go-import-template/core"
-	"52lu/go-import-template/core/validate"
+	"52lu/go-import-template/internal"
+	"52lu/go-import-template/internal/validate"
 	"52lu/go-import-template/global"
 	"52lu/go-import-template/model/entity"
 	"52lu/go-import-template/model/request/user"
@@ -58,7 +58,7 @@ func Login(ctx *gin.Context) {
 		return
 	}
 	// 生成token
-	token, err := core.CreateToken(userRecord.ID)
+	token, err := internal.CreateToken(userRecord.ID)
 	if err != nil {
 		global.GvaLogger.Sugar().Errorf("登录失败,Token生成异常:%s", err)
 		response.Error(ctx, "登录失败,账号或者密码错误!")

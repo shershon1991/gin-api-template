@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"52lu/go-import-template/core"
+	"52lu/go-import-template/internal"
 	"52lu/go-import-template/global"
 	"52lu/go-import-template/model/dao"
 	"52lu/go-import-template/model/request"
@@ -26,7 +26,7 @@ func JWTAuthMiddleware() func(ctx *gin.Context) {
 			return
 		}
 		// 验证Token
-		userClaim, err := core.ParseToken(token)
+		userClaim, err := internal.ParseToken(token)
 		if err != nil {
 			response.ErrorWithToken(ctx, "Token error :"+err.Error())
 			// 中断请求

@@ -2,7 +2,7 @@
 package initialize
 
 import (
-	"52lu/go-import-template/core/orm"
+	"52lu/go-import-template/internal/orm"
 	"52lu/go-import-template/global"
 	"fmt"
 	"gorm.io/driver/mysql"

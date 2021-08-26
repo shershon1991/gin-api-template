@@ -1,7 +1,7 @@
 /**
  * @Description JWT中间件
  **/
-package core
+package internal
 
 import (
 	"52lu/go-import-template/global"
