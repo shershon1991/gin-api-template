@@ -6,7 +6,7 @@ package user
 import (
 	"52lu/go-import-template/global"
 	"52lu/go-import-template/model/entity"
-	"52lu/go-import-template/model/request"
+	"52lu/go-import-template/model/request/user"
 	"gorm.io/gorm"
 )
 
@@ -32,7 +32,7 @@ func LoginPwd(user *entity.User) error {
 }
 
 // 注册用户
-func Register(param request.RegisterParam) (*entity.User, error) {
+func Register(param user.RegisterParam) (*entity.User, error) {
 	user := entity.User{
 		NickName: param.NickName,
 		Phone:    param.Phone,

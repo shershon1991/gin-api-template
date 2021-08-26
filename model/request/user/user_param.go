@@ -1,7 +1,7 @@
 /**
  * @Description 请求参数
  **/
-package request
+package user
 
 // 登录参数
 type LoginParam struct {

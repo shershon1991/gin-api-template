@@ -5,7 +5,7 @@ import (
 	"52lu/go-import-template/core/validate"
 	"52lu/go-import-template/global"
 	"52lu/go-import-template/model/entity"
-	"52lu/go-import-template/model/request"
+	"52lu/go-import-template/model/request/user"
 	"52lu/go-import-template/model/response"
 	userService "52lu/go-import-template/service/user"
 	"github.com/gin-gonic/gin"
@@ -18,7 +18,7 @@ import (
  */
 func Register(ctx *gin.Context) {
 	// 绑定参数
-	var registerParam request.RegisterParam
+	var registerParam user.RegisterParam
 	var err error
 	_ = ctx.ShouldBindJSON(&registerParam)
 	//  参数校验
@@ -42,7 +42,7 @@ func Register(ctx *gin.Context) {
  */
 func Login(ctx *gin.Context) {
 	// 绑定参数
-	var loginParam request.LoginParam
+	var loginParam user.LoginParam
 	_ = ctx.ShouldBindJSON(&loginParam)
 	//  参数校验
 	err := validate.Validate(loginParam)
