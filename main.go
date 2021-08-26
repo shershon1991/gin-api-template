@@ -4,6 +4,10 @@ import (
 	"52lu/go-import-template/global"
 	"52lu/go-import-template/initialize"
 )
+//go:generate go env -w GO111MODULE=on
+//go:generate go env -w GOPROXY=https://goproxy.cn,direct
+//go:generate go mod tidy
+//go:generate go mod download
 
 func main() {
 	// 程序退出前释放资源
