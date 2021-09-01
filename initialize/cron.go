@@ -1,8 +1,8 @@
 package initialize
 
 import (
+	"52lu/go-import-template/crontab"
 	"52lu/go-import-template/global"
-	"52lu/go-import-template/service/crontab"
 	"github.com/robfig/cron/v3"
 )
 
