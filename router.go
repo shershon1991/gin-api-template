@@ -4,14 +4,3 @@
  * @Date 2021/7/5 3:17 下午
  **/
 package main
-
-import (
-	"52lu/go-import-template/router/demo"
-	"github.com/gin-gonic/gin"
-)
-
-// 注册路由入口
-func registerRouters(engine *gin.Engine) {
-	// 注册演示路由
-	demo.InitDemoRouter(engine)
-}

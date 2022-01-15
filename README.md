@@ -1,7 +1,5 @@
 # gin-import-template
-`Gin`框架学习使用,并实践常用包在Gin框架中的集成和使用。[Github地址: https://github.com/52lu/gin-api-template.git]( https://github.com/52lu/gin-api-template.git)
-
-
+`Gin`框架学习使用,并实践常用包在Gin框架中的集成和使用。[Gitee地址: https://gitee.com/tangxiaoshan/gin-api-template]( https://gitee.com/tangxiaoshan/gin-api-template)
 
 # 目录介绍
 ```
@@ -23,11 +21,3 @@
 ├── test // 单元测试目录
 └── utils // 工具包
 ```
-
-# 集成博客
-- [Gin集成(一):集成viper配置解析包](https://mp.weixin.qq.com/s/HYUpF2UhekVGsKM4ON5OFw)
-- [Gin集成(二):集成高性能日志zap](https://mp.weixin.qq.com/s/SaJQbKY6veFpp9q4C1U0Jg)
-- [Gin集成(三):集成全功能ORM框架(gorm)](https://mp.weixin.qq.com/s/IM3bWTbfoqpF7AXkej0yRg)
-- [Gin集成(四):集成JWT](https://mp.weixin.qq.com/s/0ayMVsTdbI3OmgKOyyWCKQ)
-- [Gin集成(五):集成Redis](https://mp.weixin.qq.com/s/1Do6P40RIH0vLKL_nIOFuw)
-- [Gin集成(六):集成ElasticSearch客户端](https://mp.weixin.qq.com/s/XjLKVwIf8TnUffaBeFNVlQ)
