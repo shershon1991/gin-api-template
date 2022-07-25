@@ -40,7 +40,7 @@ func initLogger() {
 	// 创建NewCore
 	zapCore := zapcore.NewCore(encoder, writeSyncer, getLevel())
 	// 创建logger
-	logger := zap.New(zapCore,zap.AddCaller(),zap.AddStacktrace(zap.ErrorLevel))
+	logger := zap.New(zapCore, zap.AddCaller(), zap.AddStacktrace(zap.ErrorLevel))
 	defer logger.Sync()
 	// 赋值给全局变量
 	global.GvaLogger = logger
@@ -105,12 +105,11 @@ func getLumberjackWriteSyncer() zapcore.WriteSyncer {
 
 // 获取日志文件名
 func getLogFile() string {
-	fileFormat := time.Now().Format(global.GvaConfig.Log.FileFormat)
+	//fileFormat := time.Now().Format(global.GvaConfig.Log.FileFormat)
+	fileFormat := time.Now().Format("2006-01-02 15:04:05")
 	fileName := strings.Join([]string{
 		global.GvaConfig.Log.FilePrefix,
 		fileFormat,
 		"log"}, ".")
 	return path.Join(global.GvaConfig.Log.Path, fileName)
 }
-
-
