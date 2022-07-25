@@ -1,5 +1,5 @@
 # gin-import-template
-`Gin`框架学习使用,并实践常用包在Gin框架中的集成和使用。[Gitee地址: https://gitee.com/tangxiaoshan/gin-api-template]( https://gitee.com/tangxiaoshan/gin-api-template)
+`Gin`框架学习使用,并实践常用包在Gin框架中的集成和使用。[Gitee地址: https://github.com/shershon1991/gin-api-template](https://github.com/shershon1991/gin-api-template.git)
 
 # 目录介绍
 ```
