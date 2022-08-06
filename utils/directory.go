@@ -6,8 +6,8 @@
 package utils
 
 import (
-	"52lu/go-import-template/global"
 	"os"
+	"shershon1991/gin-api-template/global"
 )
 
 // 判断目录是否存在,存在返回 true

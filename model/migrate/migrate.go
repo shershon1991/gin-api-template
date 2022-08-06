@@ -4,12 +4,11 @@
 package migrate
 
 import (
-	"52lu/go-import-template/global"
-	"52lu/go-import-template/model/entity/user"
 	"fmt"
 	"gorm.io/gorm"
+	"shershon1991/gin-api-template/global"
+	"shershon1991/gin-api-template/model/entity/user"
 )
-
 
 // 设置表信息
 func setTableOption(tableComment string) *gorm.DB {

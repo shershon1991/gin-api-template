@@ -1,15 +1,15 @@
 package demo
 
 import (
-	"52lu/go-import-template/global"
-	"52lu/go-import-template/internal"
-	"52lu/go-import-template/internal/validate"
-	user2 "52lu/go-import-template/model/entity/user"
-	"52lu/go-import-template/model/request/user"
-	"52lu/go-import-template/model/response"
-	userService "52lu/go-import-template/service/user"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
+	"shershon1991/gin-api-template/global"
+	"shershon1991/gin-api-template/internal"
+	"shershon1991/gin-api-template/internal/validate"
+	user2 "shershon1991/gin-api-template/model/entity/user"
+	"shershon1991/gin-api-template/model/request/user"
+	"shershon1991/gin-api-template/model/response"
+	userService "shershon1991/gin-api-template/service/user"
 )
 
 /**
@@ -24,13 +24,13 @@ func Register(ctx *gin.Context) {
 	//  参数校验
 	err = validate.Validate(registerParam)
 	if err != nil {
-		response.Error(ctx, "参数校验失败: " + err.Error())
+		response.Error(ctx, "参数校验失败: "+err.Error())
 		return
 	}
 	// 调用注册
 	register, err := userService.Register(registerParam)
 	if err != nil {
-		response.Error(ctx, "注册失败: " + err.Error())
+		response.Error(ctx, "注册失败: "+err.Error())
 		return
 	}
 	response.OkWithData(ctx, register)
@@ -47,7 +47,7 @@ func Login(ctx *gin.Context) {
 	//  参数校验
 	err := validate.Validate(loginParam)
 	if err != nil {
-		response.Error(ctx, "参数校验失败: " + err.Error())
+		response.Error(ctx, "参数校验失败: "+err.Error())
 		return
 	}
 	// 调用登录服务

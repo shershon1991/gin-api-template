@@ -1,10 +1,10 @@
 package demo
 
 import (
-	"52lu/go-import-template/global"
-	"52lu/go-import-template/model/response"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"shershon1991/gin-api-template/global"
+	"shershon1991/gin-api-template/model/response"
 )
 
 // 索引库
@@ -42,13 +42,12 @@ func CreateIndex(ctx *gin.Context) {
 }
 
 // SearchById 查询
-func SearchById(ctx *gin.Context)  {
-	id,_ := ctx.GetQuery("id")
+func SearchById(ctx *gin.Context) {
+	id, _ := ctx.GetQuery("id")
 	res, err := global.GvaElastic.Get().Index(indexName).Id(id).Do(ctx)
 	if err != nil {
-		response.Error(ctx, fmt.Sprintf("查询失败:%s",err))
+		response.Error(ctx, fmt.Sprintf("查询失败:%s", err))
 		return
 	}
-	response.OkWithData(ctx,res.Source)
+	response.OkWithData(ctx, res.Source)
 }
-

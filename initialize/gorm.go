@@ -2,8 +2,6 @@
 package initialize
 
 import (
-	"52lu/go-import-template/global"
-	"52lu/go-import-template/model/migrate"
 	"fmt"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -11,6 +9,8 @@ import (
 	"gorm.io/gorm/schema"
 	"log"
 	"os"
+	"shershon1991/gin-api-template/global"
+	"shershon1991/gin-api-template/model/migrate"
 )
 
 // InitGorm 初始化mysql客户端

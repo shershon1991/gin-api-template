@@ -4,7 +4,7 @@
 package user
 
 import (
-	"52lu/go-import-template/global"
+	"shershon1991/gin-api-template/global"
 )
 
 // 用户表

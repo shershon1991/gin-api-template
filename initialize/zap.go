@@ -6,12 +6,12 @@
 package initialize
 
 import (
-	"52lu/go-import-template/global"
-	"52lu/go-import-template/utils"
 	"github.com/natefinch/lumberjack"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	"path"
+	"shershon1991/gin-api-template/global"
+	"shershon1991/gin-api-template/utils"
 	"strings"
 	"time"
 )

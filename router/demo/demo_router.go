@@ -1,9 +1,9 @@
 package demo
 
 import (
-	"52lu/go-import-template/api/demo"
-	"52lu/go-import-template/middleware"
 	"github.com/gin-gonic/gin"
+	"shershon1991/gin-api-template/api/demo"
+	"shershon1991/gin-api-template/middleware"
 )
 
 // 系统路由

@@ -16,7 +16,7 @@ log:
     compress: false #是否压缩/归档旧文件
 mysql:
   enable: true
-  host: 127.0.0.1
+  host: localhost
   port: 3306
   user: root
   password: root

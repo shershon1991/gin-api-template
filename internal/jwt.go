@@ -4,11 +4,11 @@
 package internal
 
 import (
-	"52lu/go-import-template/global"
-	"52lu/go-import-template/model/request"
 	"errors"
 	"github.com/golang-jwt/jwt"
 	"go.uber.org/zap"
+	"shershon1991/gin-api-template/global"
+	"shershon1991/gin-api-template/model/request"
 	"time"
 )
 

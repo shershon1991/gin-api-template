@@ -1,13 +1,13 @@
 package main
 
 import (
-	"52lu/go-import-template/global"
-	"52lu/go-import-template/initialize"
-	"52lu/go-import-template/middleware"
-	"52lu/go-import-template/router/demo"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"shershon1991/gin-api-template/global"
+	"shershon1991/gin-api-template/initialize"
+	"shershon1991/gin-api-template/middleware"
+	"shershon1991/gin-api-template/router/demo"
 	"time"
 )
 

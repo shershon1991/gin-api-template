@@ -4,14 +4,14 @@
 package demo
 
 import (
-	"52lu/go-import-template/global"
-	"52lu/go-import-template/model/response"
 	"github.com/gin-gonic/gin"
+	"shershon1991/gin-api-template/global"
+	"shershon1991/gin-api-template/model/response"
 	"time"
 )
 
 // 验证redis
-func RdTest(ctx *gin.Context)  {
+func RdTest(ctx *gin.Context) {
 	method, _ := ctx.GetQuery("type")
 	var result string
 	var err error
@@ -22,8 +22,8 @@ func RdTest(ctx *gin.Context)  {
 		result, err = global.GvaRedis.Set(ctx, "test", "hello word!", time.Hour).Result()
 	}
 	if err != nil {
-		response.Error(ctx,err.Error())
+		response.Error(ctx, err.Error())
 		return
 	}
-	response.OkWithData(ctx,result)
+	response.OkWithData(ctx, result)
 }

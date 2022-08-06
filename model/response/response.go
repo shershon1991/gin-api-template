@@ -6,16 +6,16 @@
 package response
 
 import (
-	"52lu/go-import-template/global"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"shershon1991/gin-api-template/global"
 	"time"
 )
 
 const (
-	SUCCESS = 0
-	ERROR   = -1
-	TOKEN_EXIPRE   = -1
+	SUCCESS      = 0
+	ERROR        = -1
+	TOKEN_EXIPRE = -1
 )
 
 // 定义统一返回接口格式
@@ -63,6 +63,6 @@ func Error(ctx *gin.Context, msg string) {
 }
 
 // 登录超时或者token失效
-func ErrorWithToken(ctx *gin.Context, msg string)  {
+func ErrorWithToken(ctx *gin.Context, msg string) {
 	ResultJson(ctx, TOKEN_EXIPRE, msg, map[string]interface{}{})
 }

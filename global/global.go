@@ -1,11 +1,11 @@
 package global
 
 import (
-	"52lu/go-import-template/config"
 	"github.com/go-redis/redis/v8"
 	"github.com/olivere/elastic/v7"
 	"go.uber.org/zap"
 	"gorm.io/gorm"
+	"shershon1991/gin-api-template/config"
 )
 
 // 全局客户端

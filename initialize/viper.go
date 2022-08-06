@@ -1,13 +1,13 @@
 package initialize
 
 import (
-	"52lu/go-import-template/global"
 	"flag"
 	"fmt"
 	"github.com/fsnotify/fsnotify"
 	"github.com/spf13/viper"
 	"path"
 	"runtime"
+	"shershon1991/gin-api-template/global"
 )
 
 // 获取配置文件位置

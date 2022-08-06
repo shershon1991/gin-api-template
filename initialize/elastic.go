@@ -4,11 +4,11 @@
 package initialize
 
 import (
-	"52lu/go-import-template/global"
 	"fmt"
 	"github.com/olivere/elastic/v7"
 	"log"
 	"os"
+	"shershon1991/gin-api-template/global"
 )
 
 // 创建es客户端

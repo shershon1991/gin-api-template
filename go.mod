@@ -1,4 +1,4 @@
-module 52lu/go-import-template
+module shershon1991/gin-api-template
 
 go 1.15
 

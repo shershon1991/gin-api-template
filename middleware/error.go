@@ -1,10 +1,10 @@
 package middleware
 
 import (
-	"52lu/go-import-template/global"
-	"52lu/go-import-template/model/response"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"shershon1991/gin-api-template/global"
+	"shershon1991/gin-api-template/model/response"
 )
 
 // 捕获请求全局错误

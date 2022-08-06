@@ -4,10 +4,10 @@
 package user
 
 import (
-	"52lu/go-import-template/global"
-	user2 "52lu/go-import-template/model/entity/user"
-	"52lu/go-import-template/model/request/user"
 	"gorm.io/gorm"
+	"shershon1991/gin-api-template/global"
+	user2 "shershon1991/gin-api-template/model/entity/user"
+	"shershon1991/gin-api-template/model/request/user"
 )
 
 /**

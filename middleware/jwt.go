@@ -1,13 +1,13 @@
 package middleware
 
 import (
-	"52lu/go-import-template/internal"
-	"52lu/go-import-template/global"
-	"52lu/go-import-template/model/dao"
-	"52lu/go-import-template/model/request"
-	"52lu/go-import-template/model/response"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"shershon1991/gin-api-template/global"
+	"shershon1991/gin-api-template/internal"
+	"shershon1991/gin-api-template/model/dao"
+	"shershon1991/gin-api-template/model/request"
+	"shershon1991/gin-api-template/model/response"
 )
 
 /**
@@ -39,6 +39,7 @@ func JWTAuthMiddleware() func(ctx *gin.Context) {
 		ctx.Next()
 	}
 }
+
 // 设置数据到上下文
 func setContextData(ctx *gin.Context, userClaim *request.UserClaims, token string) {
 	userDao := &dao.UserDao{

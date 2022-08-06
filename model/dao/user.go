@@ -4,8 +4,8 @@
 package dao
 
 import (
-	"52lu/go-import-template/global"
-	userEntity "52lu/go-import-template/model/entity/user"
+	"shershon1991/gin-api-template/global"
+	userEntity "shershon1991/gin-api-template/model/entity/user"
 )
 
 type UserDao struct {
