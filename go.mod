@@ -12,7 +12,7 @@ require (
 	github.com/golang-jwt/jwt v3.2.1+incompatible
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/natefinch/lumberjack v2.0.0+incompatible
-	github.com/olivere/elastic/v7 v7.0.27
+	github.com/olivere/elastic/v7 v7.0.32
 	github.com/robfig/cron/v3 v3.0.0
 	github.com/spf13/viper v1.12.0
 	github.com/ugorji/go v1.2.6 // indirect
