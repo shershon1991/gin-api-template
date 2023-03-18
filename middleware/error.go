@@ -18,7 +18,7 @@ func CatchErrorMiddleWare() func(ctx *gin.Context) {
 				if global.GvaLogger != nil {
 					global.GvaLogger.Error(errMsg)
 				}
-				// todo 邮件通知
+				// todo邮件通知
 
 				// 错误响应
 				response.Error(ctx, errMsg)

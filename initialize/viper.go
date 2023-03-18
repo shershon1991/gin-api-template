@@ -21,7 +21,7 @@ func getConfigFile() string {
 func initConfig() {
 	var configFile string
 	// 读取配置文件优先级: 命令行 > 默认值
-	flag.StringVar(&configFile, "c", getConfigFile(), "配置配置")
+	flag.StringVar(&configFile, "c", getConfigFile(), "配置")
 	if len(configFile) == 0 {
 		// 读取默认配置文件
 		panic("配置文件不存在！")
@@ -41,7 +41,7 @@ func initConfig() {
 		}
 	})
 	if err := v.Unmarshal(&global.GvaConfig); err != nil {
-		panic(fmt.Errorf("配置重载失败:%s\n", err))
+		panic(fmt.Errorf("配置加载失败:%s\n", err))
 	}
 	// 设置配置文件
 	global.GvaConfig.App.ConfigFile = configFile

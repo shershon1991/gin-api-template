@@ -5,14 +5,12 @@
  **/
 package config
 
-import "time"
-
 // 日志信息
 type log struct {
 	Path       string     `yaml:"path"`
 	Level      string     `yaml:"level"`
 	FilePrefix string     `yaml:"filePrefix"`
-	FileFormat time.Time  `yaml:"fileFormat"`
+	FileFormat string     `yaml:"fileFormat"`
 	OutFormat  string     `yaml:"outFormat"`
 	LumberJack lumberJack `yaml:"lumberJack"`
 }

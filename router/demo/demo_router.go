@@ -13,7 +13,6 @@ func InitDemoRouter(engine *gin.Engine) {
 	{
 		// 获取全局变量
 		systemRouter.GET("config", demo.GetConfig)
-
 	}
 	// 不需要登录的路由
 	noLoginGroup := engine.Group("demo/user")
@@ -33,6 +32,8 @@ func InitDemoRouter(engine *gin.Engine) {
 	{
 		// redis测试使用
 		testRouter.GET("redis", demo.RdTest)
+		// log
+		testRouter.GET("log", demo.LogTest)
 	}
 	// es相关路由
 	esGroup := engine.Group("demo/es")

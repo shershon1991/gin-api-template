@@ -105,8 +105,8 @@ func getLumberjackWriteSyncer() zapcore.WriteSyncer {
 
 // 获取日志文件名
 func getLogFile() string {
-	//fileFormat := time.Now().Format(global.GvaConfig.Log.FileFormat)
-	fileFormat := time.Now().Format("2006-01-02 15:04:05")
+	fileFormat := time.Now().Format(global.GvaConfig.Log.FileFormat)
+	//fileFormat := time.Now().Format(global.YYYYMMDDHHIISS)
 	fileName := strings.Join([]string{
 		global.GvaConfig.Log.FilePrefix,
 		fileFormat,
